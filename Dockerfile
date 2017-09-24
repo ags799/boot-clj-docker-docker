@@ -5,4 +5,5 @@ WORKDIR /usr/local/bin
 RUN curl -fsSLo boot https://github.com/boot-clj/boot-bin/releases/download/latest/boot.sh
 RUN chmod 755 boot
 WORKDIR /root
+ENV BOOT_AS_ROOT yes
 ENTRYPOINT boot
