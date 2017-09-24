@@ -12,6 +12,7 @@ jobs:
       - deploy:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
               docker build -t ags799/boot-docker .
               docker tag ags799/boot-docker:latest ags799/boot-docker:$(git rev-parse --short HEAD)
               docker push ags799/boot-docker
