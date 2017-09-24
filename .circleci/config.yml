@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/boot-clj-docker-docker
+    docker:
+      - image: docker:17.06-git  # should match Dockerfile's FROM
+    steps:
+      - checkout
+      - restore_cache:
+          key: boot-clj-docker-docker-{{checksum "Dockerfile" }}
+      - run: docker build -t ags799/boot-docker
+      - deploy:
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              docker build -t ags799/boot-docker
+              docker tag ags799/boot-docker:latest ags799/boot-docker:$(git rev-parse --short HEAD)
+            fi
