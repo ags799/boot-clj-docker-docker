@@ -6,4 +6,6 @@ RUN curl -fsSLo boot https://github.com/boot-clj/boot-bin/releases/download/late
 RUN chmod 755 boot
 WORKDIR /root
 ENV BOOT_AS_ROOT yes
+# pre-download boot and its dependencies
+RUN boot
 ENTRYPOINT boot
