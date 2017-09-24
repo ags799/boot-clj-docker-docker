@@ -8,10 +8,10 @@ jobs:
       - checkout
       - restore_cache:
           key: boot-clj-docker-docker-{{checksum "Dockerfile" }}
-      - run: docker build -t ags799/boot-docker
       - deploy:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              docker build -t ags799/boot-docker
+              docker build -t ags799/boot-docker .
               docker tag ags799/boot-docker:latest ags799/boot-docker:$(git rev-parse --short HEAD)
+              docker push ags799/boot-docker
             fi
