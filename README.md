@@ -1,5 +1,5 @@
 # boot-docker-docker
-[![CircleCI](https://circleci.com/gh/ags799/boot-clj-docker-docker.svg?style=shield&circle-token=672bec5e06287fcf240552b05ae06b9eef9e921d)](https://circleci.com/gh/ags799/boot-clj-docker-docker)
+[![CircleCI](https://circleci.com/gh/ags799/boot-docker-docker.svg?style=shield&circle-token=672bec5e06287fcf240552b05ae06b9eef9e921d)](https://circleci.com/gh/ags799/boot-docker-docker)
 
 A Docker image for [boot](http://boot-clj.com/) and
 [Docker](https://www.docker.com/).
